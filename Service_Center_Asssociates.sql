@@ -1,0 +1,52 @@
+
+SELECT agent 'sca_phone',
+CASE
+WHEN agent = '960484899' then 'Joshua Kampamba'
+WHEN agent = '965633742' then 'Francis Banda'
+WHEN agent = '963681352' then 'Sabeta Banda'
+WHEN agent = '977308230' then 'Chilufya Sayoni'
+WHEN agent = '969839580' then 'Nora Mtonga'
+WHEN agent = '960262515' then 'Isaac Sakala'
+WHEN agent = '968594888' then 'Prosper Lombe'
+WHEN agent = '968594939' then 'Obby Kaputo'
+WHEN agent = '968914146' then 'Benson Lesa'
+WHEN agent = '960700783' then 'Joy Mvula'
+WHEN agent = '963157456' then 'Racheal Ngoma'
+WHEN agent = '962996785' then 'Banji Chooye'
+WHEN agent = '969904271' then 'Webby Chingumbe'
+WHEN agent = '961001184' then 'Dora Ndumba'
+WHEN agent = '963135172' then 'Amon Chilale'
+WHEN agent = '965673907' then 'Margret Tembo'
+WHEN agent = '965679453' then 'Mansaya Sinclair'
+WHEN agent = '962124765' then 'Harrison Banda'
+WHEN agent = '965675123' then 'Honest Bwalya'
+WHEN agent = '960947199' then 'Busiku Mweene'
+WHEN agent = '962529444' then 'Numba Siakavuba'
+WHEN agent = '963010904' then 'Linah Kakwezhy'
+WHEN agent = '966894975' then 'Mwaba Kalunga'
+WHEN agent = '972082165' then 'Chola Mumba'
+WHEN agent = '961252954' then 'Mathews Chembe'
+WHEN agent = '962054803' then 'Mevin Mumba'
+WHEN agent = '960997221' then 'Clement Kangwa'
+WHEN agent = '964562256' then 'Daneil Mwamba'
+WHEN agent = '960995848' then 'Owen Singoyi'
+WHEN agent = '962156650' then 'Tabitha Muzoka'
+WHEN agent = '968786074' then 'Mwilu Kaputula'
+WHEN agent = '964233769' then 'Simushi Muyunda'
+WHEN agent = '965117833' then 'Baldwin Phiri'
+WHEN agent = '960484553' then 'Anita Zulu'
+WHEN agent = '969601288' then 'Eneless Phiri'
+WHEN agent = '963745100' then 'Frank Sakala'
+WHEN agent = '962131148' then 'Petronella Chisanga'
+WHEN agent = '967266110' then 'Shappson Banda'
+WHEN agent = '967266110' then 'Mickson Banda'
+WHEN agent = '969403314' then 'Angela Chanda'
+
+
+WHEN agent = 
+ELSE 'OTHER'
+end as 'sca_name',
+`start` 'start_date',
+direction 'call_direction'
+FROM `pbx_agentutilization`
+WHERE country = 'ZMB' and flags like '%FWD_PSTN%'
