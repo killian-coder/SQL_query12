@@ -26,3 +26,16 @@ FROM films;
 
 SELECT AVG(duration)/60.0 as avg_duration_hours
 FROM films
+
+
+Problem 4
+-- Get the percentage of people who are no 
+-- longer alive. Alias the result as percentage_dead. Remember to use 100.0 and not 100!
+
+SELECT  COUNT(deathdate) * 100.0 / COUNT(*) As percentage_dead
+FROM people
+
+-- Get the number of years between the newest film and oldest film. Alias the result as difference
+
+SELECT MAX(release_year) - MIN(release_year) AS  difference
+FROM films
