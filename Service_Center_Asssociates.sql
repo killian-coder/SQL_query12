@@ -45,8 +45,8 @@ WHEN agent = '969403314' then 'Angela Chanda'
 
 WHEN agent = 
 ELSE 'OTHER'
-end as 'sca_name',
+END AS 'sca_name',
 `start` 'start_date',
 direction 'call_direction'
 FROM `pbx_agentutilization`
-WHERE country = 'ZMB' and flags like '%FWD_PSTN%'
+WHERE country = 'ZMB' AND flags LIKE '%FWD_PSTN%'
