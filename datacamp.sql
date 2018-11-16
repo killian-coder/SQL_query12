@@ -78,3 +78,28 @@ ORDER BY title DESC
  SELECT name,birthdate
 FROM people
 ORDER BY birthdate,name
+
+SELECT release_year , title, duration
+FROM films
+ORDER BY release_year,duration
+
+-- Get the release year and count of films released in each year.
+
+SELECT release_year, count(*)
+FROM films
+GROUP BY release_year
+ORDER BY count DESC;
+
+-- Get the release year and average duration of all films, grouped by release year.
+
+SELECT release_year, AVG(duration)
+FROM films
+GROUP BY release_year
+ORDER BY release_year;
+
+-- Get the release year and largest budget for all films, grouped by release year.
+
+SELECT release_year, MAX(budget)
+FROM films
+GROUP BY release_year
+ORDER BY release_year;
