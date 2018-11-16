@@ -66,3 +66,15 @@ SELECT title,gross
 FROM films 
 WHERE title LIKE 'M%'
 ORDER BY title
+
+SELECT imdb_score, film_id
+FROM reviews
+ORDER BY imdb_score DESC
+
+SELECT title
+FROM films
+ORDER BY title DESC
+ 
+ SELECT name,birthdate
+FROM people
+ORDER BY birthdate,name
