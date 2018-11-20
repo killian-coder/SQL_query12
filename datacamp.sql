@@ -103,3 +103,10 @@ SELECT release_year, MAX(budget)
 FROM films
 GROUP BY release_year
 ORDER BY release_year;
+
+Get the release year and lowest gross earnings per release year.
+
+SELECT language,SUM(gross)
+FROM films
+GROUP BY language
+ORDER BY  language
