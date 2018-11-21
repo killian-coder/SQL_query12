@@ -110,3 +110,9 @@ SELECT language,SUM(gross)
 FROM films
 GROUP BY language
 ORDER BY  language
+
+
+SELECT country,SUM(budget)
+FROM films
+GROUP BY country
+ORDER BY  country
