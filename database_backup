@@ -1,0 +1,111 @@
+-- phpMyAdmin SQL Dump
+-- version 5.0.2
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Apr 21, 2020 at 11:32 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.2.29
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `royal_mint`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `mcontacts`
+--
+
+CREATE TABLE `mcontacts` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `first_name` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `last_name` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `other_names` varchar(60) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `primary_contact` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `alternate_contact` varchar(20) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `gender_id` bigint(20) UNSIGNED NOT NULL,
+  `district_id` bigint(20) UNSIGNED NOT NULL,
+  `age_range_id` bigint(20) UNSIGNED NOT NULL,
+  `follow_up_date` date DEFAULT NULL,
+  `case_status_id` bigint(20) UNSIGNED NOT NULL,
+  `reffered_to_id` bigint(20) UNSIGNED DEFAULT NULL,
+  `referred_by_id` bigint(20) UNSIGNED NOT NULL,
+  `incident_description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `modified_by_id` bigint(20) NOT NULL,
+  `created_by_id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `mcontacts`
+--
+
+INSERT INTO `mcontacts` (`id`, `first_name`, `last_name`, `other_names`, `primary_contact`, `alternate_contact`, `gender_id`, `district_id`, `age_range_id`, `follow_up_date`, `case_status_id`, `reffered_to_id`, `referred_by_id`, `incident_description`, `modified_by_id`, `created_by_id`, `created_at`, `updated_at`) VALUES
+(1, 'black', 'syamalala', NULL, '0950003918', NULL, 1, 1, 1, '2020-04-22', 1, 1, 1, 'hey there am watching tv', 1, 1, '2020-04-20 20:56:53', '2020-04-20 20:57:23'),
+(2, 'Jane', 'Banda', NULL, '0950003919', NULL, 2, 2, 2, '2020-04-23', 1, 2, 2, 'hal halo hal halo hal halohal halohal halo', 1, 1, '2020-04-20 20:58:23', '2020-04-20 20:58:43'),
+(3, 'Mark', 'Zulu', NULL, '0950003920', NULL, 1, 3, 3, '2020-04-24', 1, 3, 3, 'Hey there am a Incedent Description    Hey there am a Incedent Description   Hey there am a Incedent Description   Hey there am a Incedent Description   Hey there am a Incedent Description', 1, 1, '2020-04-20 21:00:11', '2020-04-20 21:00:36'),
+(4, 'Ester', 'Zimba', NULL, '0950003921', NULL, 2, 4, 5, '2020-04-27', 1, 4, 1, 'Hey there am a Incedent Description Hey there am a Incedent Description Hey there am a Incedent Description Hey there am a Incedent Description Hey there am a Incedent Description Hey there am a Incedent Description', 1, 1, '2020-04-20 21:01:58', '2020-04-20 21:02:25'),
+(5, 'Ken', 'Dumbo', NULL, '0950003922', NULL, 1, 1, 2, '2020-04-23', 1, 5, 2, '<?php $no=1; ?><?php $no=1; ?><?php $no=1; ?><?php $no=1; ?><?php $no=1; ?><?php $no=1; ?>', 1, 1, '2020-04-21 00:06:24', '2020-04-21 00:06:54'),
+(6, 'Tasha', 'Cobbs', NULL, '0950003923', NULL, 1, 11, 3, '2020-04-29', 1, 11, 3, 'SELECT\r\n    mp.name,COUNT(mt.id)\r\nFROM\r\n    `mprovinces` mp \r\nLEFT JOIN districts ds on  ds.province_id = mp.id\r\nLEFT JOIN mcontacts mt on  mt.district_id = ds.id\r\nGROUP by(mt.id)', 1, 1, '2020-04-21 15:04:30', '2020-04-21 15:06:53'),
+(7, 'Real', 'Mbewe', NULL, '0950003924', NULL, 1, 22, 4, '2020-05-01', 1, 9, 3, 'heyrb  jeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeebbbbbbbbbbbbbbbbbbbbbbbbbbsdkskls', 1, 1, '2020-04-21 15:09:52', '2020-04-21 15:10:13'),
+(8, 'Quincy', 'Love', NULL, '0950003925', NULL, 1, 36, 5, '2020-05-02', 1, 5, 4, 'hey there how are  how re you', 1, 1, '2020-04-21 16:47:06', '2020-04-21 16:47:29');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `mcontacts`
+--
+ALTER TABLE `mcontacts`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `mcontacts_gender_id_foreign` (`gender_id`),
+  ADD KEY `mcontacts_district_id_foreign` (`district_id`),
+  ADD KEY `mcontacts_age_range_id_foreign` (`age_range_id`),
+  ADD KEY `mcontacts_case_status_id_foreign` (`case_status_id`),
+  ADD KEY `mcontacts_reffered_to_id_foreign` (`reffered_to_id`),
+  ADD KEY `mcontacts_referred_by_id_foreign` (`referred_by_id`),
+  ADD KEY `mcontacts_created_by_id_foreign` (`created_by_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `mcontacts`
+--
+ALTER TABLE `mcontacts`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `mcontacts`
+--
+ALTER TABLE `mcontacts`
+  ADD CONSTRAINT `mcontacts_age_range_id_foreign` FOREIGN KEY (`age_range_id`) REFERENCES `age_ranges` (`id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `mcontacts_case_status_id_foreign` FOREIGN KEY (`case_status_id`) REFERENCES `case_statuses` (`id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `mcontacts_created_by_id_foreign` FOREIGN KEY (`created_by_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `mcontacts_district_id_foreign` FOREIGN KEY (`district_id`) REFERENCES `districts` (`id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `mcontacts_gender_id_foreign` FOREIGN KEY (`gender_id`) REFERENCES `genders` (`id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `mcontacts_referred_by_id_foreign` FOREIGN KEY (`referred_by_id`) REFERENCES `reffered_bys` (`id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `mcontacts_reffered_to_id_foreign` FOREIGN KEY (`reffered_to_id`) REFERENCES `refferred_tos` (`id`) ON UPDATE CASCADE;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
